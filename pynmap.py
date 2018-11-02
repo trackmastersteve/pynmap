@@ -9,15 +9,15 @@ import nmap
 def nmapScan(tgtHost, tgtPort):
     nmScan = nmap.PortScanner()
     nmScan.scan(tgtHost, tgtPort)
-    state = nmScan[tgtHost]['tcp'][int(tgtPort)]['state']
+    state = nmScan[tgtHost]['tcp'][int(tgtPort)]['state'] # Show 'stat' of a port.
     if state == 'open':
-            st = '[+]'
+            st = '[+]' # Show [+] for open ports.
     else:
-        st = '[-]'
-    print(st + " " + tgtHost + " tcp/" +tgtPort + " -" + state)
+        st = '[-]' # Show [-] for closed ports.
+    print(st + " " + tgtHost + " tcp/" +tgtPort + " -" + state) 
 
 def main():
-    parser = optparse.OptionParser(('usage %prog -H <target host> -p <target port(s) separated by comma>'))
+    parser = optparse.OptionParser(("usage %prog -H <target host> -p <target port(s) separated by comma>"))
     parser.add_option("-H", dest="tgtHost", type="string", help="specify target host")
     parser.add_option("-p", dest="tgtPort", type="string", help="specify target port(s) separated by comma")
     (options, args) = parser.parse_args()
