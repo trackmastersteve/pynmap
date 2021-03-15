@@ -9,7 +9,7 @@ import nmap
 def nmapScan(tgtHost, tgtPort):
     nmScan = nmap.PortScanner()
     nmScan.scan(tgtHost, tgtPort)
-    state = nmScan[tgtHost]['tcp'][int(tgtPort)]['state'] # Show 'stat' of a port.
+    state = nmScan[tgtHost]['tcp'][int(tgtPort)]['state'] # Show 'state' of a port.
     if state == 'open':
             st = '[+]' # Show [+] for open ports.
     else:
