@@ -34,5 +34,5 @@ for port in range(port_min, port_max + 1):
     pass
   
 for port in open_ports:
-  print("f"Port {port} is open on {ip_add_entered}.")
+  print(f"Port {port} is open on {ip_add_entered}.")
         
